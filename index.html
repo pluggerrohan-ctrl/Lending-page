@@ -74,16 +74,54 @@ document.getElementById('generate').addEventListener('click', function() {
         return;
     }
     
-    // User ke prompt ke mutabik templates select karne ka jugaad
-    if(idea.includes('restaurant') || idea.includes('food') || idea.includes('cafe') || idea.includes('hotel')) {
-        resultBox.innerHTML = '<span class="tag">Preview Generated</span><h3 style="color:#00ffcc;">🍽️ Midnight Table Concept</h3><p>Generated static preview for your food business. Ready to customize.</p><div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:10px;"><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Menu</span><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Reservations</span></div>';
-    } else if(idea.includes('gym') || idea.includes('fitness') || idea.includes('workout')) {
-        resultBox.innerHTML = '<span class="tag">Preview Generated</span><h3 style="color:#38bdf8;">💪 Forge Fitness Concept</h3><p>Generated static preview for your health brand. High-converting layout.</p><div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:10px;"><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Classes</span><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Memberships</span></div>';
-    } else if(idea.includes('salon') || idea.includes('beauty') || idea.includes('spa') || idea.includes('hair')) {
-        resultBox.innerHTML = '<span class="tag">Preview Generated</span><h3 style="color:#a78bfa;">✂️ Studio Aura Concept</h3><p>Generated static preview for your modern salon. Premium aesthetic.</p><div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:10px;"><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Services</span><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Booking CTA</span></div>';
+    // Core Layout Styling
+    var baseStyle = 'margin-top:20px; border-radius:15px; padding:25px; text-align:left; border:1px solid #ffffff15; box-shadow:0 15px 40px rgba(0,0,0,0.5); position:relative; overflow:hidden; min-height:300px; display:flex; flex-direction:column; justify-content:space-between;';
+    
+    if(idea.includes('restaurant') || idea.includes('resturant') || idea.includes('food') || idea.includes('cafe')) {
+        resultBox.innerHTML = `
+            <span class="tag">Preview Generated</span>
+            <div style="${baseStyle} background: linear-gradient(rgba(44,26,19,0.85), rgba(17,16,15,0.95)), url('https://unsplash.com') no-repeat center/cover;">
+                <div style="position:absolute; top:15px; right:15px; font-size:11px; color:#ff9900; font-weight:bold; letter-spacing:1px;">LIVE PREVIEW</div>
+                <div>
+                    <span style="font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:#ff9900;">Midnight Table • Dubai</span>
+                    <h3 style="font-size:26px; margin:10px 0 5px; font-weight:850; letter-spacing:-1px; color:#fff; line-height:1.2;">Great food deserves a great first impression.</h3>
+                    <p style="font-size:13px; color:#c8c8d2; margin:0 0 20px;">A polished, luxury responsive website tailored for premium fine dining.</p>
+                </div>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <span style="padding:8px 14px; background:#ffffff10; border:1px solid #ffffff15; border-radius:8px; font-size:12px; font-weight:700; color:#fff;">📖 View Menu</span>
+                    <span style="padding:8px 14px; background:#ff9900; color:#000; border-radius:8px; font-size:12px; font-weight:800;">🍷 Book Table</span>
+                </div>
+            </div>`;
+    } else if(idea.includes('gym') || idea.includes('fitness') || idea.includes('workout') || idea.includes('club')) {
+        resultBox.innerHTML = `
+            <span class="tag">Preview Generated</span>
+            <div style="${baseStyle} background: linear-gradient(rgba(16,27,28,0.85), rgba(16,16,20,0.95)), url('https://unsplash.com') no-repeat center/cover;">
+                <div style="position:absolute; top:15px; right:15px; font-size:11px; color:#38bdf8; font-weight:bold; letter-spacing:1px;">LIVE PREVIEW</div>
+                <div>
+                    <span style="font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:#38bdf8;">Forge Fitness • New York</span>
+                    <h3 style="font-size:26px; margin:10px 0 5px; font-weight:850; letter-spacing:-1px; color:#fff; line-height:1.2;">No Pain. No Excuse. Just Results.</h3>
+                    <p style="font-size:13px; color:#c8c8d2; margin:0 0 20px;">Bold neon-cyber layout optimized for high conversions and user onboarding metrics.</p>
+                </div>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <span style="padding:8px 14px; background:#ffffff10; border:1px solid #ffffff15; border-radius:8px; font-size:12px; font-weight:700; color:#fff;">🏋️ Classes</span>
+                    <span style="padding:8px 14px; background:#38bdf8; color:#000; border-radius:8px; font-size:12px; font-weight:800;">⚡ Join Membership</span>
+                </div>
+            </div>`;
     } else {
-        // Default Catch-All Setup
-        resultBox.innerHTML = '<span class="tag">Preview Generated</span><h3 style="color:#8b5cf6;">🚀 Northstar Agency Concept</h3><p>Generated a clean responsive landing page layout for your business idea.</p><div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:10px;"><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Services</span><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Contact Form</span></div>';
+        resultBox.innerHTML = `
+            <span class="tag">Preview Generated</span>
+            <div style="${baseStyle} background: linear-gradient(rgba(18,29,53,0.85), rgba(13,16,25,0.95)), url('https://unsplash.com') no-repeat center/cover;">
+                <div style="position:absolute; top:15px; right:15px; font-size:11px; color:#8b5cf6; font-weight:bold; letter-spacing:1px;">LIVE PREVIEW</div>
+                <div>
+                    <span style="font-size:11px; text-transform:uppercase; letter-spacing:1.5px; color:#8b5cf6;">Northstar Studio • Global</span>
+                    <h3 style="font-size:26px; margin:10px 0 5px; font-weight:850; letter-spacing:-1px; color:#fff; line-height:1.2;">We engineer high-concurrency SaaS platforms.</h3>
+                    <p style="font-size:13px; color:#c8c8d2; margin:0 0 20px;">Premium neon agency portal with automated token authentication gates built-in.</p>
+                </div>
+                <div style="display:flex; gap:10px; flex-wrap:wrap;">
+                    <span style="padding:8px 14px; background:#ffffff10; border:1px solid #ffffff15; border-radius:8px; font-size:12px; font-weight:700; color:#fff;">💼 Our Work</span>
+                    <span style="padding:8px 14px; background:#8b5cf6; color:#fff; border-radius:8px; font-size:12px; font-weight:800;">🚀 Hire Studio</span>
+                </div>
+            </div>`;
     }
 });
 </script>
