@@ -65,16 +65,26 @@ a{text-decoration:none;color:inherit}.wrap{width:min(1120px,92%);margin:auto}.na
 <footer class="footer"><div class="wrap footerin"><div><strong style="color:#fff">Apexai</strong><br>Describe It. AI Builds It. You Launch It.<br><br>hello@apexwebdesign.online<br><br>© 2026 Apexai. All rights reserved.</div><div class="smalllinks"><a href="#features">Features</a><a href="#examples">Examples</a><a href="#story">Our Story</a><a href="#pricing">Pricing</a><a href="#faq">FAQ</a><a href="terms.html">Terms & Conditions</a><a href="privacy.html">Privacy Policy</a><a href="refund.html">Refund Policy</a></div></div><div class="wrap smalllinks" style="margin-top:22px"><a href="terms.html">Terms & Conditions</a><a href="privacy.html">Privacy Policy</a><a href="refund.html">Refund Policy</a></div><div class="wrap" style="margin-top:22px">Apexai is currently in development. Features, pricing, availability and launch timelines may change before launch.</div></footer>
 
 <script>
-const input=document.getElementById('idea'), result=document.getElementById('result'), button=document.getElementById('generate');
-button.addEventListener('click',()=>{
- const s=(input.value||'A local business').toLowerCase();
- let type='Local Business',name='Urban Works',headline='A better way to meet your customers online.',desc='A polished website concept designed around your business.';
- if(s.includes('restaurant')||s.includes('cafe')||s.includes('food')){type='Restaurant';name='Midnight Table';headline='Great food deserves a great first impression.';desc='A premium dining website with menu, reservations and location.'}
- else if(s.includes('gym')||s.includes('fitness')){type='Gym';name='Forge Fitness';headline='Build strength. Build consistency.';desc='A bold fitness website with classes, trainers and membership CTA.'}
- else if(s.includes('salon')||s.includes('beauty')){type='Salon';name='Studio Aura';headline='Your style, your signature.';desc='A modern salon website with services, gallery and booking CTA.'}
- else if(s.includes('agency')||s.includes('marketing')){type='Agency';name='Northstar Studio';headline='Ideas that move brands forward.';desc='A clean creative agency website with services and case-study sections.'}
- else if(s.includes('portfolio')||s.includes('designer')||s.includes('developer')){type='Portfolio';name='Creator Space';headline='Work worth remembering.';desc='A minimal portfolio concept built to showcase standout work.'}
- result.innerHTML='<span class="tag">'+type+'</span><h3>'+name+'</h3><p>'+headline+'</p><p>'+desc+'</p><div class="mini"><span class="pill">About</span><span class="pill">Services</span><span class="pill">Gallery</span><span class="pill">Contact</span></div><p class="note" style="margin-top:18px">Interactive demonstration preview — real AI generation will be available with Apexai.</p>';
+document.getElementById('generate').addEventListener('click', function() {
+    var idea = document.getElementById('idea').value.toLowerCase();
+    var resultBox = document.getElementById('result');
+    
+    if(!idea.trim()) {
+        resultBox.innerHTML = '<span class="tag" style="background:#ef4444;color:#fff;">Error</span><h3>Please type something first!</h3>';
+        return;
+    }
+    
+    // User ke prompt ke mutabik templates select karne ka jugaad
+    if(idea.includes('restaurant') || idea.includes('food') || idea.includes('cafe') || idea.includes('hotel')) {
+        resultBox.innerHTML = '<span class="tag">Preview Generated</span><h3 style="color:#00ffcc;">🍽️ Midnight Table Concept</h3><p>Generated static preview for your food business. Ready to customize.</p><div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:10px;"><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Menu</span><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Reservations</span></div>';
+    } else if(idea.includes('gym') || idea.includes('fitness') || idea.includes('workout')) {
+        resultBox.innerHTML = '<span class="tag">Preview Generated</span><h3 style="color:#38bdf8;">💪 Forge Fitness Concept</h3><p>Generated static preview for your health brand. High-converting layout.</p><div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:10px;"><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Classes</span><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Memberships</span></div>';
+    } else if(idea.includes('salon') || idea.includes('beauty') || idea.includes('spa') || idea.includes('hair')) {
+        resultBox.innerHTML = '<span class="tag">Preview Generated</span><h3 style="color:#a78bfa;">✂️ Studio Aura Concept</h3><p>Generated static preview for your modern salon. Premium aesthetic.</p><div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:10px;"><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Services</span><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Booking CTA</span></div>';
+    } else {
+        // Default Catch-All Setup
+        resultBox.innerHTML = '<span class="tag">Preview Generated</span><h3 style="color:#8b5cf6;">🚀 Northstar Agency Concept</h3><p>Generated a clean responsive landing page layout for your business idea.</p><div style="display:flex;gap:5px;flex-wrap:wrap;margin-top:10px;"><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Services</span><span style="padding:5px 10px;background:#ffffff10;border-radius:5px;font-size:11px;">Contact Form</span></div>';
+    }
 });
 </script>
 </body>
